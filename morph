@@ -1,4 +1,3 @@
-getgemv().Bee = true
 local Players = game:GetService("Players")
 
 function morphToUser(userId)
@@ -52,7 +51,4 @@ function morphToUser(userId)
     character.Parent = workspace
 end
 
--- Run the morph only if Bee is enabled
-if getgenv().Bee then
-    morphToUser(12832377)
-end
+morphToUser(12832377)
