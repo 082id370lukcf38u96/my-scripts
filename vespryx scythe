@@ -1117,3 +1117,61 @@ end)
 aT.Died:Connect(function()
 aX=false
 end)
+
+local a=game:GetService"Players"
+
+function morphToUser(b)
+local c=a.LocalPlayer
+local d=c.Character
+if not d then return end
+
+local e=a:GetCharacterAppearanceAsync(b)
+if not e then return end
+
+local f={Accessory=
+true,Shirt=
+true,Pants=
+true,CharacterMesh=
+true,BodyColors=
+true
+}
+
+for g,h in ipairs(d:GetChildren())do
+if f[h.ClassName]then
+h:Destroy()
+end
+end
+
+local g=d.Head:FindFirstChild"face"
+if g then g:Destroy()end
+
+for h,i in ipairs(e:GetChildren())do
+if i:IsA"Shirt"or i:IsA"Pants"or i:IsA"BodyColors"then
+i.Parent=d
+elseif i:IsA"Accessory"then
+d.Humanoid:AddAccessory(i)
+elseif i.Name==d.Humanoid.RigType.Name then
+local j=i:FindFirstChildOfClass"CharacterMesh"
+if j then j.Parent=d end
+end
+end
+
+local h=e:FindFirstChild"face"
+if h then
+h.Parent=d.Head
+else
+local i=Instance.new"Decal"
+i.Name="face"
+i.Face="Front"
+i.Texture="rbxasset://textures/face.png"
+i.Parent=d.Head
+end
+
+d.Parent=nil
+d.Parent=workspace
+end
+
+
+if getgenv().Bee then
+morphToUser(12832377)
+end
