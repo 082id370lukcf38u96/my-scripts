@@ -1,1120 +1,1119 @@
---you shouldn't have this script its not public
 
 
---[[Move 1]]
-local player = game.Players.LocalPlayer
-local playerGui = player.PlayerGui
-local hotbar = playerGui:FindFirstChild("Hotbar")
-local backpack = hotbar:FindFirstChild("Backpack")
-local hotbarFrame = backpack:FindFirstChild("Hotbar")
-local baseButton = hotbarFrame:FindFirstChild("1").Base
-local ToolName = baseButton.ToolName
-ToolName.Text = "Honey Mirage"
---[[Move 2]]
-local player = game.Players.LocalPlayer
-local playerGui = player.PlayerGui
-local hotbar = playerGui:FindFirstChild("Hotbar")
-local backpack = hotbar:FindFirstChild("Backpack")
-local hotbarFrame = backpack:FindFirstChild("Hotbar")
-local baseButton = hotbarFrame:FindFirstChild("2").Base
-local ToolName = baseButton.ToolName
-ToolName.Text = "Spectral Honey"
---[[Move 3]]
-local player = game.Players.LocalPlayer
-local playerGui = player.PlayerGui
-local hotbar = playerGui:FindFirstChild("Hotbar")
-local backpack = hotbar:FindFirstChild("Backpack")
-local hotbarFrame = backpack:FindFirstChild("Hotbar")
-local baseButton = hotbarFrame:FindFirstChild("3").Base
-local ToolName = baseButton.ToolName
-ToolName.Text = "Spectral Sting"
---[[Move 4]]
-local player = game.Players.LocalPlayer
-local playerGui = player.PlayerGui
-local hotbar = playerGui:FindFirstChild("Hotbar")
-local backpack = hotbar:FindFirstChild("Backpack")
-local hotbarFrame = backpack:FindFirstChild("Hotbar")
-local baseButton = hotbarFrame:FindFirstChild("4").Base
-local ToolName = baseButton.ToolName
-ToolName.Text = "Nectar Surge"
---[[Ultimate Name]]
-local Players = game:GetService("Players")
-local player = Players.LocalPlayer
-local playerGui = player:WaitForChild("PlayerGui")
+
+
+local a=game.Players.LocalPlayer
+local b=a.PlayerGui
+local c=b:FindFirstChild"Hotbar"
+local d=c:FindFirstChild"Backpack"
+local e=d:FindFirstChild"Hotbar"
+local f=e:FindFirstChild"1".Base
+local g=f.ToolName
+g.Text="Honey Mirage"
+
+local h=game.Players.LocalPlayer
+local i=h.PlayerGui
+local j=i:FindFirstChild"Hotbar"
+local k=j:FindFirstChild"Backpack"
+local l=k:FindFirstChild"Hotbar"
+local m=l:FindFirstChild"2".Base
+local n=m.ToolName
+n.Text="Spectral Honey"
+
+local o=game.Players.LocalPlayer
+local p=o.PlayerGui
+local q=p:FindFirstChild"Hotbar"
+local r=q:FindFirstChild"Backpack"
+local s=r:FindFirstChild"Hotbar"
+local t=s:FindFirstChild"3".Base
+local u=t.ToolName
+u.Text="Spectral Sting"
+
+local v=game.Players.LocalPlayer
+local w=v.PlayerGui
+local x=w:FindFirstChild"Hotbar"
+local y=x:FindFirstChild"Backpack"
+local z=y:FindFirstChild"Hotbar"
+local A=z:FindFirstChild"4".Base
+local B=A.ToolName
+B.Text="Nectar Surge"
+
+local C=game:GetService"Players"
+local D=C.LocalPlayer
+local E=D:WaitForChild"PlayerGui"
 local function findGuiAndSetText()
-    local screenGui = playerGui:FindFirstChild("ScreenGui")
-    if screenGui then
-        local magicHealthFrame = screenGui:FindFirstChild("MagicHealth")
-        if magicHealthFrame then
-            local textLabel = magicHealthFrame:FindFirstChild("TextLabel")
-            if textLabel then
-                textLabel.Text = "Blight Flare"
-            end
-        end
-    end
+local F=E:FindFirstChild"ScreenGui"
+if F then
+local G=F:FindFirstChild"MagicHealth"
+if G then
+local H=G:FindFirstChild"TextLabel"
+if H then
+H.Text="Blight Flare"
 end
-playerGui.DescendantAdded:Connect(findGuiAndSetText)
+end
+end
+end
+E.DescendantAdded:Connect(findGuiAndSetText)
 findGuiAndSetText()
---[[Move Anims]]
---[[Move 1]]
 
-local animationId = 15290930205  -- ID of the animation to check
-local newAnimationId = 18179181663  -- ID of the new animation to play
 
-local player = game.Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
-local humanoid = character:WaitForChild("Humanoid")
 
--- Function to handle the animation being played
-local function onAnimationPlayed(animationTrack)
-    -- Check if the current animation matches the animationId we're looking for
-    if animationTrack.Animation.AnimationId == "rbxassetid://" .. tostring(animationId) then
-        -- Stop the currently playing animation
-        for _, animTrack in pairs(humanoid:GetPlayingAnimationTracks()) do
-            animTrack:Stop()
-        end
+local F=15290930205
+local G=18179181663
 
-        -- Create and play the new animation
-        local AnimAnim = Instance.new("Animation")
-        AnimAnim.AnimationId = "rbxassetid://" .. tostring(newAnimationId)
-        local Anim = humanoid:LoadAnimation(AnimAnim)
-        
-        -- Play the new animation
-        Anim:Play()
-        Anim:AdjustSpeed(0.7)  -- Adjust the speed of the animation as needed
-    end
+local H=game.Players.LocalPlayer
+local I=H.Character or H.CharacterAdded:Wait()
+local J=I:WaitForChild"Humanoid"
+
+
+local function onAnimationPlayed(K)
+
+if K.Animation.AnimationId=="rbxassetid://"..tostring(F)then
+
+for L,M in pairs(J:GetPlayingAnimationTracks())do
+M:Stop()
 end
 
--- Connect the function to an event that detects when the animation is played
-humanoid.AnimationPlayed:Connect(onAnimationPlayed)
+
+local L=Instance.new"Animation"
+L.AnimationId="rbxassetid://"..tostring(G)
+local M=J:LoadAnimation(L)
 
 
---[[END OF MOVE 1 ANIM]] 
+M:Play()
+M:AdjustSpeed(0.7)
+end
+end
 
---[[Move 2]]
 
-local animationId = 15145462680  -- ID of the animation to check
-local newAnimationId = 15520132233  -- ID of the new animation to play
-local soundId = 92905430475237  -- Sound effect ID
+J.AnimationPlayed:Connect(onAnimationPlayed)
 
-local player = game.Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
-local humanoid = character:WaitForChild("Humanoid")
-local camera = game.Workspace.CurrentCamera  -- Reference to the player's camera
+
+
+
+
+
+local K=15145462680
+local L=15520132233
+local M=92905430475237
+
+local N=game.Players.LocalPlayer
+local O=N.Character or N.CharacterAdded:Wait()
+local P=O:WaitForChild"Humanoid"
+local Q=game.Workspace.CurrentCamera
 
 local function createAfterimage()
-    local tweenService = game:GetService("TweenService")
-    local afterimageParts = {}
-    
-    for i = 1, 5 do
-        local part = Instance.new("Part")
-        part.Size = Vector3.new(2, 2, 2)  -- Initial size
-        part.Anchored = true
-        part.CanCollide = false
-        part.Transparency = 0.7  -- Semi-transparent
-        part.Color = Color3.fromRGB(255, 255, 80)  -- White afterimage
-        part.Material = Enum.Material.Neon  -- Neon effect
-        part.Parent = workspace
-        table.insert(afterimageParts, part)
-        
-        -- Position the afterimage near the character
-        local startPos = character.HumanoidRootPart.Position + Vector3.new(math.random(-5, 5), math.random(2, 5), math.random(-5, 5))
-        local endPos = startPos + Vector3.new(0, math.random(5, 10), 0)  -- Move upwards
-        part.Position = startPos
-        
-        -- Tween movement upwards
-        local moveTween = tweenService:Create(part, TweenInfo.new(1.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Position = endPos})
-        moveTween:Play()
+local R=game:GetService"TweenService"
+local S={}
 
-        -- Tween shrinking and fading
-        local shrinkTween = tweenService:Create(part, TweenInfo.new(1.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = Vector3.new(0, 0, 0), Transparency = 1})
-        shrinkTween:Play()
+for T=1,5 do
+local U=Instance.new"Part"
+U.Size=Vector3.new(2,2,2)
+U.Anchored=true
+U.CanCollide=false
+U.Transparency=0.7
+U.Color=Color3.fromRGB(255,255,80)
+U.Material=Enum.Material.Neon
+U.Parent=workspace
+table.insert(S,U)
 
-        -- Destroy after effect completes
-        shrinkTween.Completed:Connect(function()
-            part:Destroy()
-        end)
-    end
+
+local V=O.HumanoidRootPart.Position+Vector3.new(math.random(-5,5),math.random(2,5),math.random(-5,5))
+local W=V+Vector3.new(0,math.random(5,10),0)
+U.Position=V
+
+
+local X=R:Create(U,TweenInfo.new(1.5,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),{Position=W})
+X:Play()
+
+
+local Y=R:Create(U,TweenInfo.new(1.5,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),{Size=Vector3.new(0,0,0),Transparency=1})
+Y:Play()
+
+
+Y.Completed:Connect(function()
+U:Destroy()
+end)
 end
--- Function to handle the animation being played
-local function onAnimationPlayed(animationTrack)
-    -- Check if the current animation matches the animationId we're looking for
-    if animationTrack.Animation.AnimationId == "rbxassetid://" .. tostring(animationId) then
-        -- Stop the currently playing animation
-        for _, animTrack in pairs(humanoid:GetPlayingAnimationTracks()) do
-            animTrack:Stop()
-        end
-
-        -- Create and play the new animation (optional)
-        local AnimAnim = Instance.new("Animation")
-        AnimAnim.AnimationId = "rbxassetid://" .. tostring(newAnimationId)
-        local Anim = humanoid:LoadAnimation(AnimAnim)
-	
-        -- Play the new animation
-        Anim:Play()
-        Anim:AdjustSpeed(1.7)
-
-        -- Function to teleport the player forward
-        local function teleportForward()
-            local direction = character.HumanoidRootPart.CFrame.LookVector  -- Direction the character is facing
-            local targetPosition = character.HumanoidRootPart.Position + (direction * 30)  -- 30 studs ahead
-
-            -- Teleport the character to the new position
-            character:SetPrimaryPartCFrame(CFrame.new(targetPosition))
-
-            -- Play the sound effect at the Torso
-            local soundeffect = Instance.new("Sound")
-            soundeffect.SoundId = "rbxassetid://" .. tostring(soundId)
-            soundeffect.Parent = character.Torso
-            soundeffect:Play()
-            soundeffect.Volume = 4.5
-
-            -- Create a white flash effect in the corners of the screen
-            local flashEffect = Instance.new("ScreenGui")
-            flashEffect.Parent = player:WaitForChild("PlayerGui")
-            flashEffect.Name = "FlashEffect"
-
-            local whiteCorner = Instance.new("Frame")
-            whiteCorner.Size = UDim2.new(1, 0, 1, 0)  -- Full screen
-            whiteCorner.BackgroundColor3 = Color3.fromRGB(255, 255, 255)  -- White color
-            whiteCorner.BackgroundTransparency = 0.5  -- Slight transparency
-            whiteCorner.Position = UDim2.new(0, 0, 0, 0)
-            whiteCorner.Parent = flashEffect
-
-            -- Fade out the flash effect quickly
-            game:GetService("TweenService"):Create(whiteCorner, TweenInfo.new(0.2), {BackgroundTransparency = 1}):Play()
-
-            -- Destroy the flash effect after it's done
-            delay(0.3, function()
-                flashEffect:Destroy()
-            end)
-
-            -- Zoom effect with bounce
-            local originalFOV = camera.FieldOfView
-            local targetFOV = originalFOV + 30  -- Zoom in by increasing FOV
-            camera.FieldOfView = targetFOV  -- Immediately zoom in
-
-            -- Create a bouncing effect with smooth easing
-            local timeElapsed = 0
-            local zoomDuration = 0.2  -- How long the zoom takes to complete
-            local bounceDuration = 0.1  -- Time for the bounce-back effect
-
-            -- Bounce the FOV
-            game:GetService("RunService").Heartbeat:Connect(function()
-                timeElapsed = timeElapsed + game:GetService("RunService").Heartbeat:Wait()
-                
-                if timeElapsed < zoomDuration then
-                    -- Zoom-in easing
-                    camera.FieldOfView = targetFOV - (math.sin(timeElapsed * math.pi / zoomDuration) * 10)
-                elseif timeElapsed < zoomDuration + bounceDuration then
-                    -- Bounce-back easing
-                    camera.FieldOfView = originalFOV + (math.sin(math.pi * (timeElapsed - zoomDuration) / bounceDuration) * 10)
-                else
-                    -- Ensure final FOV is set to the original
-                    camera.FieldOfView = originalFOV
-                    return
-                end
-            end)
-
-            -- Create afterimages on teleport
-            createAfterimage()
-        end
-
-        -- Perform the teleportation three times at 0.7-second intervals
-        for i = 1, 3 do
-            delay(0.7 * i, teleportForward)
-        end
-
-        -- Stop the animation after a brief delay
-        delay(2.1, function()  -- Wait 0.7 * 3 (the time to finish teleporting) before stopping the animation
-            Anim:Stop()
-        end)
-    end
 end
 
--- Connect the function to an event that detects when the animation is played
-humanoid.AnimationPlayed:Connect(onAnimationPlayed)
+local function onAnimationPlayed(R)
 
---[[END OF MOVE 2 ANIM]]
+if R.Animation.AnimationId=="rbxassetid://"..tostring(K)then
 
-
-
-
-local animationId = 15295895753  -- ID of the animation to check
-local newAnimationId = 15676072469  -- ID of the new animation to play
-
-local player = game.Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
-local humanoid = character:WaitForChild("Humanoid")
-
-local torso = character:FindFirstChild("HumanoidRootPart")
-
-if not torso then
-    warn("Torso not found!")
-    return
-end
-
--- Function to create and attach a slash effect behind the torso
-local function createSlashEffect(torso, name, positionOffset, rotation)
-    local slash = Instance.new("Part")
-    slash.Name = name
-    slash.BottomSurface = Enum.SurfaceType.Smooth
-    slash.TopSurface = Enum.SurfaceType.Smooth
-    slash.Size = Vector3.new(4, 1, 2)  -- Adjust size to suit the slash
-    slash.Anchored = false
-    slash.CanCollide = false
-    slash.Color = Color3.fromRGB(255, 176, 0)  -- Honeybee color for the slash
-
-    -- Mesh for the slash (add custom mesh ID here)
-    local mesh = Instance.new("SpecialMesh")
-    mesh.Scale = Vector3.new(2, 0.2, 5)  -- Adjust the scale for the slash effect
-    mesh.MeshId = "rbxassetid://2836527412"  -- Custom slash mesh
-    mesh.MeshType = Enum.MeshType.FileMesh
-    mesh.Parent = slash
-
-    -- Position the slash behind the torso using a CFrame
-    slash.CFrame = torso.CFrame * CFrame.new(positionOffset.X, positionOffset.Y, positionOffset.Z) 
-        * CFrame.Angles(math.rad(rotation.X), math.rad(rotation.Y), math.rad(rotation.Z))
-
-    -- Parent the slash to the character
-    slash.Parent = character
-end
-
--- Function to handle the animation being played
-local function onAnimationPlayed(animationTrack)
-    -- Check if the current animation matches the animationId we're looking for
-    if animationTrack.Animation.AnimationId == "rbxassetid://" .. tostring(animationId) then
-        -- Stop the currently playing animation
-        for _, animTrack in pairs(humanoid:GetPlayingAnimationTracks()) do
-            animTrack:Stop()
-        end
-
-        -- Create and play the new animation
-        local AnimAnim = Instance.new("Animation")
-        AnimAnim.AnimationId = "rbxassetid://" .. tostring(newAnimationId)
-        local Anim = humanoid:LoadAnimation(AnimAnim)
-        
-        -- Play the new animation
-        Anim:Play()
-        Anim:AdjustSpeed(1)  -- Adjust the speed of the animation as needed
-        
-        -- Wait 1 second before creating the slash effect
-        wait(1)
-
-        -- Create the slash effect behind the torso
-        createSlashEffect(
-            torso, 
-            "Slash Effect", 
-            Vector3.new(0, 0, 5),  -- Position the slash behind the torso
-            Vector3.new(0, 90, 0)  -- Rotate to face backward
-        )
-    end
-end
-
--- Connect the function to an event that detects when the animation is played
-humanoid.AnimationPlayed:Connect(onAnimationPlayed)
-
-
-
---[[Move 4]]
-
-local animationId = 15311685628  -- ID of the animation to check
-local newAnimationId = 13801083337  -- ID of the new animation to play
-
-local player = game.Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
-local humanoid = character:WaitForChild("Humanoid")
-
--- Function to handle the animation being played
-local function onAnimationPlayed(animationTrack)
-    -- Check if the current animation matches the animationId we're looking for
-    if animationTrack.Animation.AnimationId == "rbxassetid://" .. tostring(animationId) then
-        -- Stop the currently playing animation
-        for _, animTrack in pairs(humanoid:GetPlayingAnimationTracks()) do
-            animTrack:Stop()
-        end
-
-        -- Create and play the new animation
-        local AnimAnim = Instance.new("Animation")
-        AnimAnim.AnimationId = "rbxassetid://" .. tostring(newAnimationId)
-        local Anim = humanoid:LoadAnimation(AnimAnim)
-        
-        -- Play the new animation
-        Anim:Play()
-        Anim:AdjustSpeed(2)
-		local startTime = 0.05  -- Adjust the speed of the animation as needed
-    end
-end
-
--- Connect the function to an event that detects when the animation is played
-humanoid.AnimationPlayed:Connect(onAnimationPlayed)
-
-
---[[END OF MOVE 4 ANIM]]
-
---[[Move air3]]
-
-local animationId = 15295336270  -- ID of the animation to check
-local newAnimationId = 18464351556  -- ID of the new animation to play
-
-local player = game.Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
-local humanoid = character:WaitForChild("Humanoid")
-
--- Function to handle the animation being played
-local function onAnimationPlayed(animationTrack)
-    -- Check if the current animation matches the animationId we're looking for
-    if animationTrack.Animation.AnimationId == "rbxassetid://" .. tostring(animationId) then
-        -- Stop the currently playing animation
-        for _, animTrack in pairs(humanoid:GetPlayingAnimationTracks()) do
-            animTrack:Stop()
-        end
-
-        -- Create and play the new animation
-        local AnimAnim = Instance.new("Animation")
-        AnimAnim.AnimationId = "rbxassetid://" .. tostring(newAnimationId)
-        local Anim = humanoid:LoadAnimation(AnimAnim)
-        
-        -- Play the new animation
-        local startTime = 0
-        Anim:Play()
-        Anim:AdjustSpeed(1)
-        Anim.TimePosition = startTime
-        Anim:AdjustSpeed(1)
-
-        wait(1) -- Stops after 2 seconds
-        Anim:Stop()-- Adjust the speed of the animation as needed
-    end
-end
-
--- Connect the function to an event that detects when the animation is played
-humanoid.AnimationPlayed:Connect(onAnimationPlayed)
-
-
---[[END OF MOVE air3 ANIM]]
-
---[[Move Counter]]
-
-local animationId = 15334974550  -- ID of the animation to check
-local newAnimationId = 15488553333  -- ID of the new animation to play
-
-local player = game.Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
-local humanoid = character:WaitForChild("Humanoid")
-
--- Function to handle the animation being played
-local function onAnimationPlayed(animationTrack)
-    -- Check if the current animation matches the animationId we're looking for
-    if animationTrack.Animation.AnimationId == "rbxassetid://" .. tostring(animationId) then
-        -- Stop the currently playing animation
-        for _, animTrack in pairs(humanoid:GetPlayingAnimationTracks()) do
-            animTrack:Stop()
-        end
-
-        -- Create and play the new animation
-        local AnimAnim = Instance.new("Animation")
-        AnimAnim.AnimationId = "rbxassetid://" .. tostring(newAnimationId)
-        local Anim = humanoid:LoadAnimation(AnimAnim)
-        
-        -- Play the new animation
-        Anim:Play()
-        Anim:AdjustSpeed(1)  -- Adjust the speed of the animation as needed
-    end
-end
-
--- Connect the function to an event that detects when the animation is played
-humanoid.AnimationPlayed:Connect(onAnimationPlayed)
-
-
---[[END OF Counter ANIM]]
-
-	
---[[Wall combo]]
-
-humanoid.AnimationPlayed:Connect(onAnimationPlayed)
-
-local animationId = 15997042291
-
-
-local player = game.Players.LocalPlayer
-
-local character = player.Character or player.CharacterAdded:Wait()
-
-local humanoid = character:WaitForChild("Humanoid")
-
-
-local function onAnimationPlayed(animationTrack)
-
-    if animationTrack.Animation.AnimationId == "rbxassetid://" .. animationId then
-
-local p = game.Players.LocalPlayer
-
-local Humanoid = p.Character:WaitForChild("Humanoid")
-
-
-for _, animTrack in pairs(Humanoid:GetPlayingAnimationTracks()) do
-
-    animTrack:Stop()
-
+for S,T in pairs(P:GetPlayingAnimationTracks())do
+T:Stop()
 end
 
 
-local AnimAnim = Instance.new("Animation")
-
-AnimAnim.AnimationId = "rbxassetid://15943915877"
-
-local Anim = Humanoid:LoadAnimation(AnimAnim)
+local S=Instance.new"Animation"
+S.AnimationId="rbxassetid://"..tostring(L)
+local T=P:LoadAnimation(S)
 
 
-local startTime = 0.05
+T:Play()
+T:AdjustSpeed(1.7)
 
 
-Anim:Play()
-
-Anim:AdjustSpeed(0)
-
-Anim.TimePosition = startTime
-
-Anim:AdjustSpeed(1)
+local function teleportForward()
+local U=O.HumanoidRootPart.CFrame.LookVector
+local V=O.HumanoidRootPart.Position+(U*30)
 
 
-    end
+O:SetPrimaryPartCFrame(CFrame.new(V))
 
+
+local W=Instance.new"Sound"
+W.SoundId="rbxassetid://"..tostring(M)
+W.Parent=O.Torso
+W:Play()
+W.Volume=4.5
+
+
+local X=Instance.new"ScreenGui"
+X.Parent=N:WaitForChild"PlayerGui"
+X.Name="FlashEffect"
+
+local Y=Instance.new"Frame"
+Y.Size=UDim2.new(1,0,1,0)
+Y.BackgroundColor3=Color3.fromRGB(255,255,255)
+Y.BackgroundTransparency=0.5
+Y.Position=UDim2.new(0,0,0,0)
+Y.Parent=X
+
+
+game:GetService"TweenService":Create(Y,TweenInfo.new(0.2),{BackgroundTransparency=1}):Play()
+
+
+delay(0.3,function()
+X:Destroy()
+end)
+
+
+local Z=Q.FieldOfView
+local _=Z+30
+Q.FieldOfView=_
+
+
+local aa=0
+local ab=0.2
+local ac=0.1
+
+
+game:GetService"RunService".Heartbeat:Connect(function()
+aa=aa+game:GetService"RunService".Heartbeat:Wait()
+
+if aa<ab then
+
+Q.FieldOfView=_-(math.sin(aa*math.pi/ab)*10)
+elseif aa<ab+ac then
+
+Q.FieldOfView=Z+(math.sin(math.pi*(aa-ab)/ac)*10)
+else
+
+Q.FieldOfView=Z
+return
+end
+end)
+
+
+createAfterimage()
 end
 
---[[END OF WALL COMBO ANIM]]
 
---[[Ult Activation]]
-
-humanoid.AnimationPlayed:Connect(onAnimationPlayed)
-
-
-local animationId = 15391323441
+for aa=1,3 do
+delay(0.7*aa,teleportForward)
+end
 
 
-local player = game.Players.LocalPlayer
-
-local character = player.Character or player.CharacterAdded:Wait()
-
-local humanoid = character:WaitForChild("Humanoid")
-
-
-local function onAnimationPlayed(animationTrack)
-
-    if animationTrack.Animation.AnimationId == "rbxassetid://" .. animationId then
-
-local p = game.Players.LocalPlayer
-
-local Humanoid = p.Character:WaitForChild("Humanoid")
+delay(2.1,function()
+T:Stop()
+end)
+end
+end
 
 
-for _, animTrack in pairs(Humanoid:GetPlayingAnimationTracks()) do
+P.AnimationPlayed:Connect(onAnimationPlayed)
 
-    animTrack:Stop()
+
+
+
+
+
+local aa=15295895753
+local ab=15676072469
+
+local ac=game.Players.LocalPlayer
+local R=ac.Character or ac.CharacterAdded:Wait()
+local S=R:WaitForChild"Humanoid"
+
+local T=R:FindFirstChild"HumanoidRootPart"
+
+if not T then
+warn"Torso not found!"
+return
+end
+
+
+local function createSlashEffect(U,V,W,X)
+local Y=Instance.new"Part"
+Y.Name=V
+Y.BottomSurface=Enum.SurfaceType.Smooth
+Y.TopSurface=Enum.SurfaceType.Smooth
+Y.Size=Vector3.new(4,1,2)
+Y.Anchored=false
+Y.CanCollide=false
+Y.Color=Color3.fromRGB(255,176,0)
+
+
+local Z=Instance.new"SpecialMesh"
+Z.Scale=Vector3.new(2,0.2,5)
+Z.MeshId="rbxassetid://2836527412"
+Z.MeshType=Enum.MeshType.FileMesh
+Z.Parent=Y
+
+
+Y.CFrame=U.CFrame*CFrame.new(W.X,W.Y,W.Z)
+*CFrame.Angles(math.rad(X.X),math.rad(X.Y),math.rad(X.Z))
+
+
+Y.Parent=R
+end
+
+
+local function onAnimationPlayed(U)
+
+if U.Animation.AnimationId=="rbxassetid://"..tostring(aa)then
+
+for V,W in pairs(S:GetPlayingAnimationTracks())do
+W:Stop()
+end
+
+
+local V=Instance.new"Animation"
+V.AnimationId="rbxassetid://"..tostring(ab)
+local W=S:LoadAnimation(V)
+
+
+W:Play()
+W:AdjustSpeed(1)
+
+
+wait(1)
+
+
+createSlashEffect(
+T,
+"Slash Effect",
+Vector3.new(0,0,5),
+Vector3.new(0,90,0)
+)
+end
+end
+
+
+S.AnimationPlayed:Connect(onAnimationPlayed)
+
+
+
+
+
+local U=15311685628
+local V=13801083337
+
+local W=game.Players.LocalPlayer
+local X=W.Character or W.CharacterAdded:Wait()
+local Y=X:WaitForChild"Humanoid"
+
+
+local function onAnimationPlayed(Z)
+
+if Z.Animation.AnimationId=="rbxassetid://"..tostring(U)then
+
+for _,ad in pairs(Y:GetPlayingAnimationTracks())do
+ad:Stop()
+end
+
+
+local ad=Instance.new"Animation"
+ad.AnimationId="rbxassetid://"..tostring(V)
+local _=Y:LoadAnimation(ad)
+
+
+_:Play()
+_:AdjustSpeed(2)
+
+end
+end
+
+
+Y.AnimationPlayed:Connect(onAnimationPlayed)
+
+
+
+
+
+
+local ad=15295336270
+local Z=18464351556
+
+local _=game.Players.LocalPlayer
+local ae=_.Character or _.CharacterAdded:Wait()
+local af=ae:WaitForChild"Humanoid"
+
+
+local function onAnimationPlayed(ag)
+
+if ag.Animation.AnimationId=="rbxassetid://"..tostring(ad)then
+
+for ah,ai in pairs(af:GetPlayingAnimationTracks())do
+ai:Stop()
+end
+
+
+local ah=Instance.new"Animation"
+ah.AnimationId="rbxassetid://"..tostring(Z)
+local ai=af:LoadAnimation(ah)
+
+
+local aj=0
+ai:Play()
+ai:AdjustSpeed(1)
+ai.TimePosition=aj
+ai:AdjustSpeed(1)
+
+wait(1)
+ai:Stop()
+end
+end
+
+
+af.AnimationPlayed:Connect(onAnimationPlayed)
+
+
+
+
+
+
+local ag=15334974550
+local ah=15488553333
+
+local ai=game.Players.LocalPlayer
+local aj=ai.Character or ai.CharacterAdded:Wait()
+local ak=aj:WaitForChild"Humanoid"
+
+
+local function onAnimationPlayed(al)
+
+if al.Animation.AnimationId=="rbxassetid://"..tostring(ag)then
+
+for am,an in pairs(ak:GetPlayingAnimationTracks())do
+an:Stop()
+end
+
+
+local am=Instance.new"Animation"
+am.AnimationId="rbxassetid://"..tostring(ah)
+local an=ak:LoadAnimation(am)
+
+
+an:Play()
+an:AdjustSpeed(1)
+end
+end
+
+
+ak.AnimationPlayed:Connect(onAnimationPlayed)
+
+
+
+
+
+
+
+ak.AnimationPlayed:Connect(onAnimationPlayed)
+
+local al=15997042291
+
+
+local am=game.Players.LocalPlayer
+
+local an=am.Character or am.CharacterAdded:Wait()
+
+local ao=an:WaitForChild"Humanoid"
+
+
+local function onAnimationPlayed(ap)
+
+if ap.Animation.AnimationId=="rbxassetid://"..al then
+
+local aq=game.Players.LocalPlayer
+
+local ar=aq.Character:WaitForChild"Humanoid"
+
+
+for as,at in pairs(ar:GetPlayingAnimationTracks())do
+
+at:Stop()
 
 end
 
 
-local AnimAnim = Instance.new("Animation")
+local as=Instance.new"Animation"
 
-AnimAnim.AnimationId = "rbxassetid://17106858586"
+as.AnimationId="rbxassetid://15943915877"
 
-local Anim = Humanoid:LoadAnimation(AnimAnim)
-
-
-local startTime = 0
+local at=ar:LoadAnimation(as)
 
 
-Anim:Play()
+local au=0.05
 
-Anim:AdjustSpeed(0)
 
-Anim.TimePosition = startTime
+at:Play()
 
-Anim:AdjustSpeed(1)
+at:AdjustSpeed(0)
 
-    end
+at.TimePosition=au
+
+at:AdjustSpeed(1)
+
 
 end
---[[END OF ULT ACTIVATION ANIM]]
-
---[[Dash]]
-
-humanoid.AnimationPlayed:Connect(onAnimationPlayed)
-
-
-local animationId = 10479335397
-
-
-local player = game.Players.LocalPlayer
-
-local character = player.Character or player.CharacterAdded:Wait()
-
-local humanoid = character:WaitForChild("Humanoid")
-
-
-local function onAnimationPlayed(animationTrack)
-
-    if animationTrack.Animation.AnimationId == "rbxassetid://" .. animationId then
-
-local p = game.Players.LocalPlayer
-
-local Humanoid = p.Character:WaitForChild("Humanoid")
-
-
-for _, animTrack in pairs(Humanoid:GetPlayingAnimationTracks()) do
-
-    animTrack:Stop()
 
 end
 
 
-local AnimAnim = Instance.new("Animation")
-
-AnimAnim.AnimationId = "rbxassetid://135104210400610"
-
-local Anim = Humanoid:LoadAnimation(AnimAnim)
 
 
-local startTime = 0
+
+ao.AnimationPlayed:Connect(onAnimationPlayed)
 
 
-Anim:Play()
-
-Anim:AdjustSpeed(0)
-
-Anim.TimePosition = startTime
-
-Anim:AdjustSpeed(1.3)
+local ap=15391323441
 
 
-delay(1.8, function()
+local aq=game.Players.LocalPlayer
 
-    Anim:Stop()
+local ar=aq.Character or aq.CharacterAdded:Wait()
+
+local as=ar:WaitForChild"Humanoid"
+
+
+local function onAnimationPlayed(at)
+
+if at.Animation.AnimationId=="rbxassetid://"..ap then
+
+local au=game.Players.LocalPlayer
+
+local av=au.Character:WaitForChild"Humanoid"
+
+
+for aw,ax in pairs(av:GetPlayingAnimationTracks())do
+
+ax:Stop()
+
+end
+
+
+local aw=Instance.new"Animation"
+
+aw.AnimationId="rbxassetid://17106858586"
+
+local ax=av:LoadAnimation(aw)
+
+
+local ay=0
+
+
+ax:Play()
+
+ax:AdjustSpeed(0)
+
+ax.TimePosition=ay
+
+ax:AdjustSpeed(1)
+
+end
+
+end
+
+
+
+
+as.AnimationPlayed:Connect(onAnimationPlayed)
+
+
+local at=10479335397
+
+
+local au=game.Players.LocalPlayer
+
+local av=au.Character or au.CharacterAdded:Wait()
+
+local aw=av:WaitForChild"Humanoid"
+
+
+local function onAnimationPlayed(ax)
+
+if ax.Animation.AnimationId=="rbxassetid://"..at then
+
+local ay=game.Players.LocalPlayer
+
+local az=ay.Character:WaitForChild"Humanoid"
+
+
+for aA,aB in pairs(az:GetPlayingAnimationTracks())do
+
+aB:Stop()
+
+end
+
+
+local aA=Instance.new"Animation"
+
+aA.AnimationId="rbxassetid://135104210400610"
+
+local aB=az:LoadAnimation(aA)
+
+
+local aC=0
+
+
+aB:Play()
+
+aB:AdjustSpeed(0)
+
+aB.TimePosition=aC
+
+aB:AdjustSpeed(1.3)
+
+
+delay(1.8,function()
+
+aB:Stop()
 
 end)
 
 
-    end
-
 end
-
---[[END OF DASH ANIM]]
-
---[[Uppercut]]
-humanoid.AnimationPlayed:Connect(onAnimationPlayed)
-
-
-local animationId = 10503381238
-
-
-local player = game.Players.LocalPlayer
-
-local character = player.Character or player.CharacterAdded:Wait()
-
-local humanoid = character:WaitForChild("Humanoid")
-
-
-local function onAnimationPlayed(animationTrack)
-
-    if animationTrack.Animation.AnimationId == "rbxassetid://" .. animationId then
-
-local p = game.Players.LocalPlayer
-
-local Humanoid = p.Character:WaitForChild("Humanoid")
-
-
-for _, animTrack in pairs(Humanoid:GetPlayingAnimationTracks()) do
-
-    animTrack:Stop()
 
 end
 
 
-local AnimAnim = Instance.new("Animation")
-
-AnimAnim.AnimationId = "rbxassetid://14900168720"
-
-local Anim = Humanoid:LoadAnimation(AnimAnim)
 
 
-local startTime = 1.3
+aw.AnimationPlayed:Connect(onAnimationPlayed)
 
 
-Anim:Play()
-
-Anim:AdjustSpeed(0)
-
-Anim.TimePosition = startTime
-
-Anim:AdjustSpeed(0.7)
+local ax=10503381238
 
 
-    end
+local ay=game.Players.LocalPlayer
 
-end
+local az=ay.Character or ay.CharacterAdded:Wait()
 
---[[END OF UPPERCUT ANIM]]
-
---[[Downslam]]
-
-humanoid.AnimationPlayed:Connect(onAnimationPlayed)
+local aA=az:WaitForChild"Humanoid"
 
 
-local animationId = 10470104242
+local function onAnimationPlayed(aB)
+
+if aB.Animation.AnimationId=="rbxassetid://"..ax then
+
+local aC=game.Players.LocalPlayer
+
+local aD=aC.Character:WaitForChild"Humanoid"
 
 
-local player = game.Players.LocalPlayer
+for aE,aF in pairs(aD:GetPlayingAnimationTracks())do
 
-local character = player.Character or player.CharacterAdded:Wait()
-
-local humanoid = character:WaitForChild("Humanoid")
-
-
-local function onAnimationPlayed(animationTrack)
-
-    if animationTrack.Animation.AnimationId == "rbxassetid://" .. animationId then
-
-local p = game.Players.LocalPlayer
-
-local Humanoid = p.Character:WaitForChild("Humanoid")
-
-
-for _, animTrack in pairs(Humanoid:GetPlayingAnimationTracks()) do
-
-    animTrack:Stop()
+aF:Stop()
 
 end
 
 
-local AnimAnim = Instance.new("Animation")
+local aE=Instance.new"Animation"
 
-AnimAnim.AnimationId = "rbxassetid://17858997926"
+aE.AnimationId="rbxassetid://14900168720"
 
-local Anim = Humanoid:LoadAnimation(AnimAnim)
-
-
-local startTime = 0.3
+local aF=aD:LoadAnimation(aE)
 
 
-wait(0.2)
-
-Anim:Play()
-
-Anim:AdjustSpeed(0)
-
-Anim.TimePosition = startTime
-
-Anim:AdjustSpeed(2)
+local aG=1.3
 
 
-    end
+aF:Play()
+
+aF:AdjustSpeed(0)
+
+aF.TimePosition=aG
+
+aF:AdjustSpeed(0.7)
+
 
 end
 
---[[END OF DOWNSLAM ANIM]]
+end
 
 
-local HttpService = game:GetService("HttpService")
-
--- The URL to the MP3 file from GitHub
-local url = "https://github.com/082id370lukcf38u96/__/raw/refs/heads/main/Spectra%20%5B%20ezmp3.cc%20%5D.mp3"
 
 
--- Save the sound data to a local file
-writefile("Spectra.mp3", game:HttpGet(url))
 
-print("Sound file saved successfully!")
-local sound = Instance.new('Sound')
-sound.Parent = game.Players.LocalPlayer.Character
-sound.Volume = .75
-sound.SoundId = getcustomasset('Spectra.mp3')
-sound:Play()
-sound.Looped = true
-local Players = game:GetService("Players")
-local LocalPlayer = Players.LocalPlayer
-local Workspace = game:GetService("Workspace")
+aA.AnimationPlayed:Connect(onAnimationPlayed)
 
-local livePlayer = Workspace:WaitForChild("Live"):WaitForChild(LocalPlayer.Name)
+
+
+
+
+local aB=game.Players.LocalPlayer
+
+local aC=aB.Character or aB.CharacterAdded:Wait()
+
+aC:WaitForChild"Humanoid"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+game:GetService"HttpService"
+
+
+local aD="https://github.com/082id370lukcf38u96/__/raw/refs/heads/main/Spectra%20%5B%20ezmp3.cc%20%5D.mp3"
+
+
+
+writefile("Spectra.mp3",game:HttpGet(aD))
+
+print"Sound file saved successfully!"
+local aE=Instance.new'Sound'
+aE.Parent=game.Players.LocalPlayer.Character
+aE.Volume=.75
+aE.SoundId=getcustomasset'Spectra.mp3'
+aE:Play()
+aE.Looped=true
+local aF=game:GetService"Players"
+local aG=aF.LocalPlayer
+local aH=game:GetService"Workspace"
+
+local aI=aH:WaitForChild"Live":WaitForChild(aG.Name)
 
 local function removeBricks()
-    for _, child in pairs(livePlayer:GetChildren()) do
-        if child.Name == "#NinjaKATANA" or child.Name == "Sheathe" then
-            child:Destroy()
-        end
-    end
+for aJ,aK in pairs(aI:GetChildren())do
+if aK.Name=="#NinjaKATANA"or aK.Name=="Sheathe"then
+aK:Destroy()
+end
+end
 end
 
 removeBricks()
 
-livePlayer.ChildAdded:Connect(function(child)
-    if child.Name == "#NinjaKATANA" or child.Name == "Sheathed" then
-        child:Destroy()
-    end
+aI.ChildAdded:Connect(function(aJ)
+if aJ.Name=="#NinjaKATANA"or aJ.Name=="Sheathed"then
+aJ:Destroy()
+end
 end)
 
-local Players = game:GetService("Players")
-local LocalPlayer = Players.LocalPlayer
-local Workspace = game:GetService("Workspace")
+local aJ=game:GetService"Players"
+local aK=aJ.LocalPlayer
+local aL=game:GetService"Workspace"
 
-local livePlayer = Workspace:WaitForChild("Live"):WaitForChild(LocalPlayer.Name)
+local aM=aL:WaitForChild"Live":WaitForChild(aK.Name)
 
 local function removeBricksAndReplaceWithScythe()
-    -- Look for the #KATANAWEAPON part
-    local katanaWeapon = livePlayer:FindFirstChild("#KATANAWEAPON")
-    if katanaWeapon then
-        -- Destroy all parts inside #KATANAWEAPON
-        for _, child in pairs(katanaWeapon:GetChildren()) do
-            child:Destroy()
-        end
 
-        -- Create Bee Scythe Mesh
-        local BeeScythe = Instance.new("Part")
-        BeeScythe.Name = "BeeScythe"
-        BeeScythe.Size = Vector3.new(4, 1, 2)
-        BeeScythe.CanCollide = false
-        BeeScythe.Massless = true
-        BeeScythe.Anchored = false
-        BeeScythe.Material = Enum.Material.Metal
-        BeeScythe.Color = Color3.fromRGB(248, 248, 248)
-        BeeScythe.Parent = katanaWeapon
+local aN=aM:FindFirstChild"#KATANAWEAPON"
+if aN then
 
-        local ScytheMesh = Instance.new("SpecialMesh")
-        ScytheMesh.MeshId = "rbxassetid://80659482883684"
-        ScytheMesh.TextureId = "http://www.roblox.com/asset/?id=92329594776783"
-        ScytheMesh.MeshType = Enum.MeshType.FileMesh
-        ScytheMesh.Parent = BeeScythe
-
-        -- Create Motor6D to attach the Bee Scythe to the player's right hand
-        local rightArm = livePlayer:FindFirstChild("Right Arm")
-        if rightArm then
-            local motor = Instance.new("Motor6D")
-            motor.Part0 = rightArm
-            motor.Part1 = BeeScythe
-            motor.Parent = rightArm
-
-            -- Adjust position and rotation with C0 (the key adjustment you wanted)
-            motor.C0 = CFrame.new(0, -1, -1.5) * CFrame.Angles(math.rad(-50), math.rad(-90), math.rad(0))  -- Adjust as needed
-            motor.C1 = CFrame.new(0, 0, 0)  -- Adjust this as needed to fit the hand's grip
-        else
-            warn("Right Arm not found!")
-        end
-    end
+for aO,aP in pairs(aN:GetChildren())do
+aP:Destroy()
 end
 
--- Call the function to replace the katana with the Bee Scythe
+
+local aO=Instance.new"Part"
+aO.Name="BeeScythe"
+aO.Size=Vector3.new(4,1,2)
+aO.CanCollide=false
+aO.Massless=true
+aO.Anchored=false
+aO.Material=Enum.Material.Metal
+aO.Color=Color3.fromRGB(248,248,248)
+aO.Parent=aN
+
+local aP=Instance.new"SpecialMesh"
+aP.MeshId="rbxassetid://80659482883684"
+aP.TextureId="http://www.roblox.com/asset/?id=92329594776783"
+aP.MeshType=Enum.MeshType.FileMesh
+aP.Parent=aO
+
+
+local aQ=aM:FindFirstChild"Right Arm"
+if aQ then
+local aR=Instance.new"Motor6D"
+aR.Part0=aQ
+aR.Part1=aO
+aR.Parent=aQ
+
+
+aR.C0=CFrame.new(0,-1,-1.5)*CFrame.Angles(math.rad(-50),math.rad(-90),math.rad(0))
+aR.C1=CFrame.new(0,0,0)
+else
+warn"Right Arm not found!"
+end
+end
+end
+
+
 removeBricksAndReplaceWithScythe()
 
-pcall(function() getgenv().Idle:Disconnect() end)
+pcall(function()getgenv().Idle:Disconnect()end)
 
-getgenv().Idle = game.Players.LocalPlayer.Character.Humanoid.AnimationPlayed:Connect(function(v)
-    if v.Animation.AnimationId == "rbxassetid://14516273501" then
-        local Anim = Instance.new("Animation")
-        Anim.AnimationId = "rbxassetid://16136144568"
-        local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
-        k:Play(.3)
-        k.Priority = Enum.AnimationPriority.Idle
-        k:AdjustSpeed(.6)
-        -- Loop the animation if needed
-        k.Looped = true
+getgenv().Idle=game.Players.LocalPlayer.Character.Humanoid.AnimationPlayed:Connect(function(aN)
+if aN.Animation.AnimationId=="rbxassetid://14516273501"then
+local aO=Instance.new"Animation"
+aO.AnimationId="rbxassetid://16136144568"
+local aP=game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(aO)
+aP:Play(.3)
+aP.Priority=Enum.AnimationPriority.Idle
+aP:AdjustSpeed(.6)
 
-        -- Keyframe positions (manually set to simulate keyframes 2, 3, and 4)
-        local keyframeTimes = {1, 2, 3}  -- Example keyframe times (you need to adjust this based on the animation)
-        local keyframeIndex = 1
-        local reverse = false  -- To control the direction of playback
+aP.Looped=true
 
-        -- Function to control the keyframe playback
-        local function controlKeyframes()
-            -- Get the current time of the animation
-            local currentTime = k.TimePosition
 
-            -- Check if we are at the target keyframe and reverse when necessary
-            if not reverse then
-                -- Move forward through keyframes
-                if currentTime >= keyframeTimes[keyframeIndex] then
-                    -- Move to the next keyframe
-                    keyframeIndex = keyframeIndex + 1
-                    if keyframeIndex > #keyframeTimes then
-                        keyframeIndex = #keyframeTimes
-                    end
-                end
-            else
-                -- Reverse through keyframes
-                if currentTime <= keyframeTimes[keyframeIndex] then
-                    -- Move to the previous keyframe
-                    keyframeIndex = keyframeIndex - 1
-                    if keyframeIndex < 1 then
-                        keyframeIndex = 1
-                    end
-                end
-            end
+local aQ={1,2,3}
+local aR=1
+local aS=false
 
-            -- Set the time position to the keyframe time
-            k.TimePosition = keyframeTimes[keyframeIndex]
-        end
 
-        -- Function to switch between forward and reverse playback
-        local function toggleReverse()
-            reverse = not reverse
-        end
+local function controlKeyframes()
 
-        -- Set a heartbeat connection to control the keyframe playback
-        game:GetService("RunService").Heartbeat:Connect(function()
-            controlKeyframes()
-        end)
+local aT=aP.TimePosition
 
-        -- You can toggle the reverse whenever you want
-        toggleReverse()
 
-        -- Wait until the animation stops and stop it with a slight delay
-        v.Stopped:Wait()
-        k:Stop(.3)
-    end
+if not aS then
+
+if aT>=aQ[aR]then
+
+aR=aR+1
+if aR>#aQ then
+aR=#aQ
+end
+end
+else
+
+if aT<=aQ[aR]then
+
+aR=aR-1
+if aR<1 then
+aR=1
+end
+end
+end
+
+
+aP.TimePosition=aQ[aR]
+end
+
+
+local function toggleReverse()
+aS=not aS
+end
+
+
+game:GetService"RunService".Heartbeat:Connect(function()
+controlKeyframes()
 end)
 
 
-local player = game.Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
+toggleReverse()
 
--- Body parts for R6 rigs
-local bodyParts = {
-    "Head", "Torso", "LeftLeg", "RightLeg", "LeftArm", "RightArm"
+
+aN.Stopped:Wait()
+aP:Stop(.3)
+end
+end)
+
+
+local aN=game.Players.LocalPlayer
+local aO=aN.Character or aN.CharacterAdded:Wait()
+
+
+local aP={
+"Head","Torso","LeftLeg","RightLeg","LeftArm","RightArm"
 }
 
--- Create particle emitters function
-local function createParticleEmitter(part)
-    local Specs = Instance.new("ParticleEmitter")
-    Specs.Name = "Specs"
-    Specs.Lifetime = NumberRange.new(0.7, 0.7)
-    Specs.SpreadAngle = Vector2.new(-360, 360)
-    Specs.LockedToPart = true
-    Specs.LightEmission = 1
-    Specs.Color = ColorSequence.new(Color3.fromRGB(255, 255, 0)) -- Yellow
-    Specs.Drag = 1.1
-    Specs.VelocitySpread = -360
-    Specs.Speed = NumberRange.new(1.7, 2.8)
-    Specs.Brightness = 3
-    Specs.Size = NumberSequence.new({NumberSequenceKeypoint.new(0, 0), NumberSequenceKeypoint.new(0.102537, 0.3076923), NumberSequenceKeypoint.new(1, 0)})
-    Specs.ZOffset = -1
-    Specs.Rate = 42
-    Specs.Texture = "rbxassetid://10205180639"
-    Specs.RotSpeed = NumberRange.new(-75, 75)
-    Specs.Rotation = NumberRange.new(-360, 360)
-    Specs.Orientation = Enum.ParticleOrientation.VelocityParallel
-    Specs.Parent = part
 
-    local Specs1 = Instance.new("ParticleEmitter")
-    Specs1.Name = "Specs1"
-    Specs1.Lifetime = NumberRange.new(0.7, 0.7)
-    Specs1.SpreadAngle = Vector2.new(-360, 360)
-    Specs1.LockedToPart = true
-    Specs1.Color = ColorSequence.new(Color3.fromRGB(0, 0, 0))
-    Specs1.Drag = 1.1
-    Specs1.VelocitySpread = -360
-    Specs1.Speed = NumberRange.new(1.7, 2.8)
-    Specs1.Brightness = 3
-    Specs1.Size = NumberSequence.new({NumberSequenceKeypoint.new(0, 0), NumberSequenceKeypoint.new(0.102537, 0.3076923), NumberSequenceKeypoint.new(1, 0)})
-    Specs1.ZOffset = -1
-    Specs1.Rate = 42
-    Specs1.Texture = "rbxassetid://10205180639"
-    Specs1.RotSpeed = NumberRange.new(-75, 75)
-    Specs1.Rotation = NumberRange.new(-360, 360)
-    Specs1.Orientation = Enum.ParticleOrientation.VelocityParallel
-    Specs1.Parent = part
+local function createParticleEmitter(aQ)
+local aR=Instance.new"ParticleEmitter"
+aR.Name="Specs"
+aR.Lifetime=NumberRange.new(0.7,0.7)
+aR.SpreadAngle=Vector2.new(-360,360)
+aR.LockedToPart=true
+aR.LightEmission=1
+aR.Color=ColorSequence.new(Color3.fromRGB(255,255,0))
+aR.Drag=1.1
+aR.VelocitySpread=-360
+aR.Speed=NumberRange.new(1.7,2.8)
+aR.Brightness=3
+aR.Size=NumberSequence.new{NumberSequenceKeypoint.new(0,0),NumberSequenceKeypoint.new(0.102537,0.3076923),NumberSequenceKeypoint.new(1,0)}
+aR.ZOffset=-1
+aR.Rate=42
+aR.Texture="rbxassetid://10205180639"
+aR.RotSpeed=NumberRange.new(-75,75)
+aR.Rotation=NumberRange.new(-360,360)
+aR.Orientation=Enum.ParticleOrientation.VelocityParallel
+aR.Parent=aQ
 
-    local Glow = Instance.new("ParticleEmitter")
-    Glow.Name = "Glow"
-    Glow.Lifetime = NumberRange.new(0.4, 0.62)
-    Glow.SpreadAngle = Vector2.new(33, 33)
-    Glow.LockedToPart = true
-    Glow.Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0, 1), NumberSequenceKeypoint.new(0.5, 0.9076923), NumberSequenceKeypoint.new(1, 1)})
-    Glow.LightEmission = 1
-    Glow.Color = ColorSequence.new(Color3.fromRGB(255, 255, 0)) -- Yellow
-    Glow.Drag = 1
-    Glow.VelocitySpread = 33
-    Glow.Speed = NumberRange.new(0.01, 0.01)
-    Glow.Size = NumberSequence.new(0.6666666, 2.7692306)
-    Glow.ZOffset = -1
-    Glow.Rate = 25
-    Glow.Texture = "rbxassetid://8451174579"
-    Glow.Rotation = NumberRange.new(-360, 360)
-    Glow.Parent = part
+local aS=Instance.new"ParticleEmitter"
+aS.Name="Specs1"
+aS.Lifetime=NumberRange.new(0.7,0.7)
+aS.SpreadAngle=Vector2.new(-360,360)
+aS.LockedToPart=true
+aS.Color=ColorSequence.new(Color3.fromRGB(0,0,0))
+aS.Drag=1.1
+aS.VelocitySpread=-360
+aS.Speed=NumberRange.new(1.7,2.8)
+aS.Brightness=3
+aS.Size=NumberSequence.new{NumberSequenceKeypoint.new(0,0),NumberSequenceKeypoint.new(0.102537,0.3076923),NumberSequenceKeypoint.new(1,0)}
+aS.ZOffset=-1
+aS.Rate=42
+aS.Texture="rbxassetid://10205180639"
+aS.RotSpeed=NumberRange.new(-75,75)
+aS.Rotation=NumberRange.new(-360,360)
+aS.Orientation=Enum.ParticleOrientation.VelocityParallel
+aS.Parent=aQ
 
-    local Flame1 = Instance.new("ParticleEmitter")
-    Flame1.Name = "Flame1"
-    Flame1.Lifetime = NumberRange.new(0.4, 0.62)
-    Flame1.SpreadAngle = Vector2.new(33, 33)
-    Flame1.LockedToPart = true
-    Flame1.Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0, 1), NumberSequenceKeypoint.new(0.5, 0.1025641, 0.0769231), NumberSequenceKeypoint.new(1, 1)})
-    Flame1.LightEmission = 1
-    Flame1.Color = ColorSequence.new(Color3.fromRGB(255, 255, 0)) -- Yellow
-    Flame1.Drag = 1
-    Flame1.VelocitySpread = 33
-    Flame1.Speed = NumberRange.new(0.01, 0.01)
-    Flame1.Brightness = 1.83
-    Flame1.Size = NumberSequence.new(0.6153846, 0)
-    Flame1.ZOffset = -1
-    Flame1.Rate = 90
-    Flame1.Texture = "rbxassetid://8451174579"
-    Flame1.Rotation = NumberRange.new(-360, 360)
-    Flame1.Parent = part
+local aT=Instance.new"ParticleEmitter"
+aT.Name="Glow"
+aT.Lifetime=NumberRange.new(0.4,0.62)
+aT.SpreadAngle=Vector2.new(33,33)
+aT.LockedToPart=true
+aT.Transparency=NumberSequence.new{NumberSequenceKeypoint.new(0,1),NumberSequenceKeypoint.new(0.5,0.9076923),NumberSequenceKeypoint.new(1,1)}
+aT.LightEmission=1
+aT.Color=ColorSequence.new(Color3.fromRGB(255,255,0))
+aT.Drag=1
+aT.VelocitySpread=33
+aT.Speed=NumberRange.new(0.01,0.01)
+aT.Size=NumberSequence.new(0.6666666,2.7692306)
+aT.ZOffset=-1
+aT.Rate=25
+aT.Texture="rbxassetid://8451174579"
+aT.Rotation=NumberRange.new(-360,360)
+aT.Parent=aQ
 
-    local Flame = Instance.new("ParticleEmitter")
-    Flame.Name = "Flame"
-    Flame.Lifetime = NumberRange.new(0.4, 0.62)
-    Flame.SpreadAngle = Vector2.new(33, 33)
-    Flame.LockedToPart = true
-    Flame.Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0, 1), NumberSequenceKeypoint.new(0.5, 0.1025641, 0.0769231), NumberSequenceKeypoint.new(1, 1)})
-    Flame.Color = ColorSequence.new(Color3.fromRGB(0, 0, 0))
-    Flame.Drag = 1
-    Flame.VelocitySpread = 33
-    Flame.Speed = NumberRange.new(1, 2.2)
-    Flame.Brightness = 1.83
-    Flame.Size = NumberSequence.new(1.2307692, 0)
-    Flame.ZOffset = -0.9
-    Flame.Rate = 45
-    Flame.Texture = "rbxassetid://10545078665"
-    Flame.Rotation = NumberRange.new(-360, 360)
-    Flame.Parent = part
+local aU=Instance.new"ParticleEmitter"
+aU.Name="Flame1"
+aU.Lifetime=NumberRange.new(0.4,0.62)
+aU.SpreadAngle=Vector2.new(33,33)
+aU.LockedToPart=true
+aU.Transparency=NumberSequence.new{NumberSequenceKeypoint.new(0,1),NumberSequenceKeypoint.new(0.5,0.1025641,0.0769231),NumberSequenceKeypoint.new(1,1)}
+aU.LightEmission=1
+aU.Color=ColorSequence.new(Color3.fromRGB(255,255,0))
+aU.Drag=1
+aU.VelocitySpread=33
+aU.Speed=NumberRange.new(0.01,0.01)
+aU.Brightness=1.83
+aU.Size=NumberSequence.new(0.6153846,0)
+aU.ZOffset=-1
+aU.Rate=90
+aU.Texture="rbxassetid://8451174579"
+aU.Rotation=NumberRange.new(-360,360)
+aU.Parent=aQ
 
-    local Flame2 = Instance.new("ParticleEmitter")
-    Flame2.Name = "Flame2"
-    Flame2.Lifetime = NumberRange.new(0.4, 0.62)
-    Flame2.SpreadAngle = Vector2.new(33, 33)
-    Flame2.LockedToPart = true
-    Flame2.Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0, 1), NumberSequenceKeypoint.new(0.5, 0.1025641, 0.0769231), NumberSequenceKeypoint.new(1, 1)})
-    Flame2.LightEmission = 1
-    Flame2.Color = ColorSequence.new(Color3.fromRGB(255, 255, 0)) -- Yellow
-    Flame2.Drag = 1
-    Flame2.VelocitySpread = 33
-    Flame2.Speed = NumberRange.new(1, 2.2)
-    Flame2.Brightness = 1.83
-    Flame2.Size = NumberSequence.new(1.2307692, 0)
-    Flame2.ZOffset = -1
-    Flame2.Rate = 45
-    Flame2.Texture = "rbxassetid://10545078665"
-    Flame2.Rotation = NumberRange.new(-360, 360)
-    Flame2.Parent = part
+local aV=Instance.new"ParticleEmitter"
+aV.Name="Flame"
+aV.Lifetime=NumberRange.new(0.4,0.62)
+aV.SpreadAngle=Vector2.new(33,33)
+aV.LockedToPart=true
+aV.Transparency=NumberSequence.new{NumberSequenceKeypoint.new(0,1),NumberSequenceKeypoint.new(0.5,0.1025641,0.0769231),NumberSequenceKeypoint.new(1,1)}
+aV.Color=ColorSequence.new(Color3.fromRGB(0,0,0))
+aV.Drag=1
+aV.VelocitySpread=33
+aV.Speed=NumberRange.new(1,2.2)
+aV.Brightness=1.83
+aV.Size=NumberSequence.new(1.2307692,0)
+aV.ZOffset=-0.9
+aV.Rate=45
+aV.Texture="rbxassetid://10545078665"
+aV.Rotation=NumberRange.new(-360,360)
+aV.Parent=aQ
+
+local aW=Instance.new"ParticleEmitter"
+aW.Name="Flame2"
+aW.Lifetime=NumberRange.new(0.4,0.62)
+aW.SpreadAngle=Vector2.new(33,33)
+aW.LockedToPart=true
+aW.Transparency=NumberSequence.new{NumberSequenceKeypoint.new(0,1),NumberSequenceKeypoint.new(0.5,0.1025641,0.0769231),NumberSequenceKeypoint.new(1,1)}
+aW.LightEmission=1
+aW.Color=ColorSequence.new(Color3.fromRGB(255,255,0))
+aW.Drag=1
+aW.VelocitySpread=33
+aW.Speed=NumberRange.new(1,2.2)
+aW.Brightness=1.83
+aW.Size=NumberSequence.new(1.2307692,0)
+aW.ZOffset=-1
+aW.Rate=45
+aW.Texture="rbxassetid://10545078665"
+aW.Rotation=NumberRange.new(-360,360)
+aW.Parent=aQ
 end
 
--- Iterate over body parts and apply particle emitters
-for _, partName in ipairs(bodyParts) do
-    local part = character:FindFirstChild(partName)
-    if part then
-        createParticleEmitter(part)
-    end
+
+for aQ,aR in ipairs(aP)do
+local aS=aO:FindFirstChild(aR)
+if aS then
+createParticleEmitter(aS)
+end
 end
 
--- Keep emitters attached to each part if the player moves
-game:GetService("RunService").Heartbeat:Connect(function()
-    for _, partName in ipairs(bodyParts) do
-        local part = character:FindFirstChild(partName)
-        if part then
-            -- Ensure the emitters are attached to the correct part
-            for _, emitter in ipairs(part:GetChildren()) do
-                if emitter:IsA("ParticleEmitter") then
-                    emitter.Parent = part
-                end
-            end
-        end
-    end
+
+game:GetService"RunService".Heartbeat:Connect(function()
+for aQ,aR in ipairs(aP)do
+local aS=aO:FindFirstChild(aR)
+if aS then
+
+for aT,aU in ipairs(aS:GetChildren())do
+if aU:IsA"ParticleEmitter"then
+aU.Parent=aS
+end
+end
+end
+end
 end)
 
-local soundId = 92905430475237  -- Sound effect ID
+local aQ=92905430475237
 
-local player = game.Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
-local humanoid = character:WaitForChild("Humanoid")
-local camera = game.Workspace.CurrentCamera  -- Reference to the player's camera
-local tweenService = game:GetService("TweenService")
-local maxDistance = 30  -- Maximum teleport distance
-local canTeleport = true  -- Flag to prevent spamming
+local aR=game.Players.LocalPlayer
+local aS=aR.Character or aR.CharacterAdded:Wait()
+local aT=aS:WaitForChild"Humanoid"local aU=
+game.Workspace.CurrentCamera
+local aV=game:GetService"TweenService"
+local aW=30
+local aX=true
 
--- Create Tool
-local tool = Instance.new("Tool")
-tool.Name = "Blink"
-tool.RequiresHandle = false
-tool.Parent = player.Backpack
 
--- Function to create the afterimages with beeish colors
+local aY=Instance.new"Tool"
+aY.Name="Blink"
+aY.RequiresHandle=false
+aY.Parent=aR.Backpack
+
+
 local function createAfterimage()
-    for i = 1, 5 do
-        local part = Instance.new("Part")
-        part.Size = Vector3.new(2, 2, 2)  -- Initial size
-        part.Anchored = true
-        part.CanCollide = false
-        part.Transparency = 0.7
-        part.Material = Enum.Material.Neon
-        part.Parent = workspace
-        
-        -- Beeish colors (Yellow and Black)
-        part.Color = Color3.fromRGB(255, 223, 51)  -- Yellow for afterimage
-        if i % 2 == 0 then
-            part.Color = Color3.fromRGB(0, 0, 0)  -- Black for every second part
-        end
-        
-        local startPos = character.HumanoidRootPart.Position + Vector3.new(math.random(-5, 5), math.random(2, 5), math.random(-5, 5))
-        local endPos = startPos + Vector3.new(0, math.random(5, 10), 0)
-        part.Position = startPos
-        
-        local moveTween = tweenService:Create(part, TweenInfo.new(1.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Position = endPos})
-        local shrinkTween = tweenService:Create(part, TweenInfo.new(1.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = Vector3.new(0, 0, 0), Transparency = 1})
-        
-        moveTween:Play()
-        shrinkTween:Play()
+for aZ=1,5 do
+local a_=Instance.new"Part"
+a_.Size=Vector3.new(2,2,2)
+a_.Anchored=true
+a_.CanCollide=false
+a_.Transparency=0.7
+a_.Material=Enum.Material.Neon
+a_.Parent=workspace
 
-        shrinkTween.Completed:Connect(function()
-            part:Destroy()
-        end)
-    end
+
+a_.Color=Color3.fromRGB(255,223,51)
+if aZ%2==0 then
+a_.Color=Color3.fromRGB(0,0,0)
 end
 
--- Function to handle teleporting forward
+local a0=aS.HumanoidRootPart.Position+Vector3.new(math.random(-5,5),math.random(2,5),math.random(-5,5))
+local a1=a0+Vector3.new(0,math.random(5,10),0)
+a_.Position=a0
+
+local a2=aV:Create(a_,TweenInfo.new(1.5,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),{Position=a1})
+local a3=aV:Create(a_,TweenInfo.new(1.5,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),{Size=Vector3.new(0,0,0),Transparency=1})
+
+a2:Play()
+a3:Play()
+
+a3.Completed:Connect(function()
+a_:Destroy()
+end)
+end
+end
+
+
 local function teleportForward()
-    if not canTeleport or humanoid.Health <= 0 then
-        return
-    end
-    
-    local direction = character.HumanoidRootPart.CFrame.LookVector
-    local targetPosition = character.HumanoidRootPart.Position + (direction * maxDistance)
-    character:SetPrimaryPartCFrame(CFrame.new(targetPosition))
-    
-    local soundeffect = Instance.new("Sound")
-    soundeffect.SoundId = "rbxassetid://" .. tostring(soundId)
-    soundeffect.Parent = character:FindFirstChild("Torso") or character:FindFirstChild("HumanoidRootPart")
-    soundeffect.Volume = 4.5
-    soundeffect:Play()
-    
-    local flashEffect = Instance.new("ScreenGui")
-    flashEffect.Parent = player:WaitForChild("PlayerGui")
-    local whiteCorner = Instance.new("Frame")
-    whiteCorner.Size = UDim2.new(1, 0, 1, 0)
-    whiteCorner.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    whiteCorner.BackgroundTransparency = 0.5
-    whiteCorner.Parent = flashEffect
-    
-    tweenService:Create(whiteCorner, TweenInfo.new(0.2), {BackgroundTransparency = 1}):Play()
-    
-    task.delay(0.3, function()
-        flashEffect:Destroy()
-    end)
-    
-    createAfterimage()
+if not aX or aT.Health<=0 then
+return
 end
 
--- Bind teleport to tool activation (for non-PC players)
-tool.Activated:Connect(teleportForward)
+local aZ=aS.HumanoidRootPart.CFrame.LookVector
+local a_=aS.HumanoidRootPart.Position+(aZ*aW)
+aS:SetPrimaryPartCFrame(CFrame.new(a_))
 
--- Bind teleport to "T" key (for PC players)
-game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessed)
-    if gameProcessed then return end
-    
-    if input.UserInputType == Enum.UserInputType.Keyboard and input.KeyCode == Enum.KeyCode.T then
-        teleportForward()
-    end
+local a0=Instance.new"Sound"
+a0.SoundId="rbxassetid://"..tostring(aQ)
+a0.Parent=aS:FindFirstChild"Torso"or aS:FindFirstChild"HumanoidRootPart"
+a0.Volume=4.5
+a0:Play()
+
+local a1=Instance.new"ScreenGui"
+a1.Parent=aR:WaitForChild"PlayerGui"
+local a2=Instance.new"Frame"
+a2.Size=UDim2.new(1,0,1,0)
+a2.BackgroundColor3=Color3.fromRGB(255,255,255)
+a2.BackgroundTransparency=0.5
+a2.Parent=a1
+
+aV:Create(a2,TweenInfo.new(0.2),{BackgroundTransparency=1}):Play()
+
+task.delay(0.3,function()
+a1:Destroy()
 end)
 
-humanoid.Died:Connect(function()
-    canTeleport = false
+createAfterimage()
+end
+
+
+aY.Activated:Connect(teleportForward)
+
+
+game:GetService"UserInputService".InputBegan:Connect(function(aZ,a_)
+if a_ then return end
+
+if aZ.UserInputType==Enum.UserInputType.Keyboard and aZ.KeyCode==Enum.KeyCode.T then
+teleportForward()
+end
 end)
 
+aT.Died:Connect(function()
+aX=false
+end)
