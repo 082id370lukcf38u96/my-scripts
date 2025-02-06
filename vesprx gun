@@ -1120,4 +1120,18 @@ else
     print("Live folder not found in workspace.")
 end
 
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+-- Search for the Resources folder
+local resourcesFolder = ReplicatedStorage:FindFirstChild("Resources")
+
+if resourcesFolder then
+    -- Search for CyborgArms inside Resources
+    local cyborgArms = resourcesFolder:FindFirstChild("CyborgArms")
+
+    if cyborgArms then
+        -- Destroy CyborgArms if found
+        cyborgArms:Destroy()
+    end
+end
 
