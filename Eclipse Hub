@@ -1,0 +1,224 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+   Name = "Eclipse Hub",
+   Theme = "DarkBlue",
+   LoadingTitle = "Loading the Goods",
+   LoadingSubtitle = "by zuki",
+   ConfigurationSaving = {
+      Enabled = true,
+      FileName = "Eclipse Hub 1"
+   }
+})
+
+Rayfield:Notify({
+   Title = "Eclipse Hub",
+   Content = "Thanks for using my script hub, made by zuki!",
+   Duration = 8.5,
+})
+
+local MainTab = Window:CreateTab("Main", "life-buoy")
+
+local RunService = game:GetService("RunService")
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local tpwalkEnabled = false
+local tpwalkSpeed = 1
+local espEnabled = false
+local selectedPlayer = nil
+
+-- Function for Tpwalk
+local function tpwalk()
+    RunService.Heartbeat:Connect(function(deltaTime)
+        if tpwalkEnabled and LocalPlayer.Character and LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid") then
+            local humanoid = LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid")
+            local moveDirection = humanoid.MoveDirection
+            if moveDirection.Magnitude > 0 then
+                LocalPlayer.Character:SetPrimaryPartCFrame(LocalPlayer.Character.PrimaryPart.CFrame + moveDirection * deltaTime * tpwalkSpeed * 10)
+            end
+        end
+    end)
+end
+
+tpwalk() -- Start the function loop
+
+-- Toggle for Tpwalk
+MainTab:CreateToggle({
+    Name = "Enable Tpwalk",
+    CurrentValue = false,
+    Callback = function(value)
+        tpwalkEnabled = value
+    end
+})
+
+-- Slider for Tpwalk speed
+MainTab:CreateSlider({
+    Name = "Tpwalk Speed",
+    Range = {1, 50},
+    Increment = 1,
+    CurrentValue = 10,
+    Callback = function(value)
+        tpwalkSpeed = value
+    end
+})
+
+-- ESP creation function
+local function createESP(player)
+    local character = player.Character
+    if character and character:FindFirstChild("Humanoid") then
+        local highlight = Instance.new("Highlight")
+        highlight.Parent = character
+        highlight.Adornee = character
+        highlight.FillColor = Color3.fromRGB(255, 0, 0)
+        highlight.OutlineColor = Color3.fromRGB(255, 255, 255)
+        highlight.OutlineTransparency = 0.5
+        highlight.FillTransparency = 0.7
+
+        player.AncestryChanged:Connect(function(_, parent)
+            if parent == nil then
+                highlight:Destroy()
+            end
+        end)
+    end
+end
+
+-- Toggle for ESP
+MainTab:CreateToggle({
+    Name = "Enable ESP",
+    CurrentValue = false,
+    Callback = function(value)
+        espEnabled = value
+        if espEnabled then
+            for _, player in pairs(Players:GetPlayers()) do
+                if player ~= LocalPlayer then
+                    createESP(player)
+                end
+            end
+        else
+            for _, player in pairs(Players:GetPlayers()) do
+                if player ~= LocalPlayer and player.Character then
+                    local highlight = player.Character:FindFirstChildOfClass("Highlight")
+                    if highlight then
+                        highlight:Destroy()
+                    end
+                end
+            end
+        end
+    end
+})
+
+-- Update ESP when new players join
+Players.PlayerAdded:Connect(function(player)
+    if espEnabled then
+        createESP(player)
+    end
+end)
+
+-- Remove ESP when players leave
+Players.PlayerRemoving:Connect(function(player)
+    if player.Character then
+        local highlight = player.Character:FindFirstChildOfClass("Highlight")
+        if highlight then
+            highlight:Destroy()
+        end
+    end
+end)
+
+-- Misc Scripts Section
+local MiscSection = MainTab:CreateSection("Misc Scripts")
+local Divider1 = MainTab:CreateDivider()
+
+local Button1 = MainTab:CreateButton({
+   Name = "Dex",
+   Callback = function()
+   	loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))()
+   end,
+})
+
+local Button2 = MainTab:CreateButton({
+   Name = "Nameless Admin",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Source"))()
+   end,
+})
+
+local Button3 = MainTab:CreateButton({
+   Name = "Infinite yield",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/edgeiy/infiniteyield/master/source", true))()
+   end,
+})
+
+local Button4 = MainTab:CreateButton({
+   Name = "VFX logger",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/LolnotaKid/Vfxloggerv1/refs/heads/main/VfxloggerV1Byveux.txt"))()
+   end,
+})
+
+-- My Movesets Tab
+local MyMovesetsTab = Window:CreateTab("My movesets", "eclipse")
+local SaitamaSection = MyMovesetsTab:CreateSection("Saitama")
+
+local Button5 = MyMovesetsTab:CreateButton({
+   Name = "Chara",
+   Callback = function()
+   loadstring(game:HttpGet("https://github.com/082id370lukcf38u96/my-scripts/raw/refs/heads/main/Protected_2628332666646403.txt", true))()
+   end,
+})
+
+local Button6 = MyMovesetsTab:CreateButton({
+   Name = "Sans",
+   Callback = function()
+   loadstring(game:HttpGet("https://github.com/082id370lukcf38u96/my-scripts/raw/refs/heads/main/Sans.txt", true))()
+   end,
+})
+
+-- Additional Sections for Other Movesets
+local GenosSection = MyMovesetsTab:CreateSection("Genos")
+local Button7 = MyMovesetsTab:CreateButton({
+   Name = "Vespyrx (this one closes rayfield and makes a new rayfield tab)",
+   Callback = function()
+   loadstring(game:HttpGet("https://pastebin.com/raw/VwTMa1Ge"))()
+   end,
+})
+
+local LunarSection = MyMovesetsTab:CreateSection("Lunar")
+local Button8 = MyMovesetsTab:CreateButton({
+   Name = "Lunar",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/082id370lukcf38u96/my-scripts/refs/heads/main/yes"))()
+   end,
+})
+
+local SonicSection = MyMovesetsTab:CreateSection("Sonic")
+local Button9 = MyMovesetsTab:CreateButton({
+   Name = "Self Aware",
+   Callback = function()
+   loadstring(game:HttpGet("https://pastebin.com/raw/MCb4wtqH", true))()
+   end,
+})
+
+local MetalBatSection = MyMovesetsTab:CreateSection("Metal Bat")
+local Button10 = MyMovesetsTab:CreateButton({
+   Name = "Taph",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/082id370lukcf38u96/my-scripts/refs/heads/main/Protected_7611509294503435.txt", true))() 
+   end,
+})
+
+local AtomicSection = MyMovesetsTab:CreateSection("Atomic")
+local WildPsychicSection = MyMovesetsTab:CreateSection("Wild Psychic")
+local Button11 = MyMovesetsTab:CreateButton({
+   Name = "Gnarpy",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/082id370lukcf38u96/my-scripts/refs/heads/main/Protected_9653867071564166.txt"))() 
+   end,
+})
+
+-- Featured Tab
+local FeaturedTab = Window:CreateTab("Featured", "youtube")
+local Paragraph = FeaturedTab:CreateParagraph({
+   Title = "You can join!",
+   Content = "This Tab will be for scripts people send me in discord and if its really good quality it will be put in this tab along side credits to you!"
+})
